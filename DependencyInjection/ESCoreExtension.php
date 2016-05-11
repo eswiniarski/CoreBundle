@@ -18,7 +18,7 @@ class ESCoreExtension extends Extension implements PrependExtensionInterface {
 
     public function prepend(ContainerBuilder $container) {
         $yaml = Yaml::parse(file_get_contents(__DIR__ . '/../Resources/config/config.yml'));
-        
+
         foreach ($yaml as $module => $config) {
             $container->prependExtensionConfig($module, $config);
         }

@@ -5,8 +5,7 @@ namespace ES\CoreBundle;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Bundle\AsseticBundle\AsseticBundle;
 
-class ESCoreBundle extends Bundle
-{
+class ESCoreBundle extends Bundle {
     /**
      * This is a hack method which allows register dependency bundles semi automatically
      * usage in README

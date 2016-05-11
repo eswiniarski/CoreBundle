@@ -1,0 +1,87 @@
+{#
+    required variables:
+        routingName - string - routing for page which contains pagination e.g for site /project it could be project
+        page - int - current page of pagination
+        maxPages - int - max amout of pages in pagination
+        routingParameters - array - associative array of parmaetrers with which be added to pagination's url
+#}
+{% if maxPages > 1 %}
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <ul class="pagination">
+                {% if page > 1  %}
+                    {% set routingParameters = routingParameters ? routingParameters|merge({'page': 1}) : {'page': 1} %}
+                    <li>
+                        <a href="{{ path(routingName, routingParameters) }}" title="{{ 'link_first_pager'|trans({}, 'ESCoreBundle') }}">
+                            <<
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="disabled">
+                        <a href="javascript:void(0);" title="{{ 'link_first_pager'|trans({}, 'ESCoreBundle') }}">
+                            <<
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% if page > 1 %}
+                    {% set routingParameters = routingParameters ? routingParameters|merge({'page': page - 1}) : {'page': page -1} %}
+                    <li>
+                        <a href="{{ path(routingName, routingParameters) }}" title="{{ 'link_previous_pager'|trans({}, 'ESCoreBundle') }}">
+                            <
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="disabled">
+                        <a href="javascript:void(0);" title="{{ 'link_previous_pager'|trans({}, 'ESCoreBundle') }}">
+                            <
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% for pageNum in (page - 2)..(page + 2) %}
+                    {% if pageNum > 0 and pageNum <= maxPages %}
+                        {% set routingParameters = routingParameters ? routingParameters|merge({'page': pageNum}) : {'page': pageNum} %}
+                        <li{{ page == pageNum ? ' class="active"' : '' }}>
+                            <a href="{{ path(routingName, routingParameters)}}">
+                                {{ pageNum }}
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if page < maxPages %}
+                    {% set routingParameters = routingParameters ? routingParameters|merge({'page': page + 1}) : {'page': page +1} %}
+
+                    <li>
+                        <a href="{{ path(routingName, routingParameters) }}" title="{{ 'link_next_pager'|trans({}, 'ESCoreBundle') }}">
+                            >
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="disabled">
+                        <a href="javascript:void(0);" title="{{ 'link_next_pager'|trans({}, 'ESCoreBundle') }}">
+                            >
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% if page < (maxPages) %}
+                    {% set routingParameters = routingParameters ? routingParameters|merge({'page': maxPages}) : {'page': maxPages} %}
+
+                    <li>
+                        <a href="{{ path(routingName, routingParameters) }}" title="{{ 'link_last_pager'|trans({}, 'ESCoreBundle') }}">
+                            >>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="disabled">
+                        <a href="javascript:void(0);" title="{{ 'link_last_pager'|trans({}, 'ESCoreBundle') }}">
+                            >>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+{% endif %}

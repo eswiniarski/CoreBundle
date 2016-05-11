@@ -1,0 +1,61 @@
+{% block htmlWrapper %}
+    <!DOCTYPE html>
+    <html lang="{{ app.request.getLocale() }}">
+    {% block html %}
+
+        {% block headWrapper %}
+            <head>
+                {% block head %}
+                    {% include 'ESCoreBundle:Partials:head.html.twig' %}
+                {% endblock %}
+            </head>
+        {% endblock %}
+
+        {% block bodyWrapper %}
+            <body class="eupopup eupopup-bottom">
+            {% block body %}
+                <div {% block contentAttr -%}id="a"{%- endblock %}>
+                    {% block contentAttrInside %}
+                        {% block header %}
+                            {% include 'ESCoreBundle:Partials:header.html.twig' %}
+                        {% endblock %}
+
+                        {% block flashes %}
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        {% include 'ESCoreBundle:Partials:FlashMessage.html.twig' %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endblock %}
+
+                        {% block container %}
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                    </div>
+                                </div>
+                            </div>
+                        {% endblock %}
+
+                        {% block footer %}
+                            {% include 'ESCoreBundle:Partials:footer.html.twig' %}
+                        {% endblock %}
+
+                        {% block cookies %}
+                            add cokie script
+                        {% endblock %}
+                    {% endblock %}
+                </div>
+
+                {% block foot %}
+                    {% include 'ESCoreBundle:Partials:foot.html.twig' %}
+                {% endblock %}
+            {% endblock %}
+            </body>
+        {% endblock %}
+
+    {% endblock %}
+    </html>
+{% endblock %}

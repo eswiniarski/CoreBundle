@@ -1,0 +1,28 @@
+{% extends "bootstrap_3_layout.html.twig" %}
+
+{% block form_errors -%}
+    {% if errors|length > 0 -%}
+    {% if form.parent %}<span class="help-block">{% else %}<div class="alert alert-danger">{% endif %}
+    <ul class="list-unstyled">
+        {%- for error in errors -%}
+            <li><span class="fa fa-exclamation-circle"></span> {{ error.message }}</li>
+        {%- endfor -%}
+    </ul>
+    {% if form.parent %}</span>{% else %}</div>{% endif %}
+    {%- endif %}
+{%- endblock form_errors %}
+
+{% block form_row -%}
+{% spaceless %}
+    <div class="form-group{% if (not compound or force_error|default(false)) and not valid %} has-error{% endif %}">
+        {{ form_label(form) }}
+        <div class="{{ block('form_group_class') }}">
+            {{ form_widget(form) }}
+            {{ form_errors(form) }}
+            {% if attr.help is defined %}
+                <span class="help-block">{{ attr.help|trans({}, translation_domain) }}</span>
+            {% endif %}
+        </div>
+    </div>
+{% endspaceless %}
+{%- endblock form_row %}

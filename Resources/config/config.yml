@@ -1,0 +1,63 @@
+assetic:
+    debug:          "%kernel.debug%"
+    use_controller: false
+#    bundles:
+#        - 'ESCoreBundle'/
+    #java: /usr/bin/java
+    assets:
+        core_lib_js:
+            inputs:
+                - '@ESCoreBundle/Resources/public/lib/jQuery/*'
+                - '@ESCoreBundle/Resources/public/lib/Bootstrap/js/tooltip.js'
+                - '@ESCoreBundle/Resources/public/lib/Bootstrap/js/*'
+                - '@ESCoreBundle/Resources/public/lib/Select2/js/*'
+                - '@ESCoreBundle/Resources/public/lib/jQueryEUCookie/js/jquery-eu-cookie-law-popup.js'
+            filters:
+                - uglifyjs2
+
+        core_lib_less:
+            inputs:
+                - '@ESCoreBundle/Resources/public/lib/Fontawsome/less/font-awesome.less'
+                - '@ESCoreBundle/Resources/public/lib/Select2/css/select2.min.css'
+                - '@ESCoreBundle/Resources/public/lib/jQueryEUCookie/less/jquery-eu-cookie-law-popup.less'
+            filters:
+                - cssrewrite
+                - less
+                - uglifycss
+
+        app_js:
+            inputs:
+            - '@ESCoreBundle/Resources/public/js/*'
+
+            filters:
+                - uglifyjs2
+
+        app_less:
+            inputs:
+                - '@ESCoreBundle/Resources/public/less/app.less'
+            filters:
+                - cssrewrite
+                - less
+                - uglifycss
+
+    filters:
+        less:
+            # Install : sudo npm install less  --global
+            node: /usr/local/bin/node
+            node_paths: [/usr/local/lib/node_modules/less/bin/lessc, /usr/local/lib/node_modules/less, /usr/local/lib/node_modules]
+            apply_to: "\.less$"
+        cssrewrite: ~
+        uglifycss:
+            # Install : sudo npm install -g uglifycss
+            node: /usr/local/bin/node
+            bin: /usr/local/lib/node_modules/uglifycss/uglifycss
+            apply_to: "\.css$"
+        uglifyjs2:
+            # Install : sudo npm install -g uglify-js
+            node: /usr/local/bin/node
+            bin: /usr/local/lib/node_modules/uglify-js/bin/uglifyjs
+            apply_to: "\.js$"
+
+twig:
+    form:
+        resources: ['ESCoreBundle:Form:bootstrap_3_layout.html.twig']

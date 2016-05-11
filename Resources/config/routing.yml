@@ -1,0 +1,4 @@
+test:
+    resource: "@ESCoreBundle/Controller/DefaultController.php"
+    type: annotation
+    prefix:   /

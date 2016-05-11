@@ -1,0 +1,26 @@
+{
+    "name": "eswiniarski/core-bundle",
+    "description" : "Core bundle for symfony2",
+    "type" : "symfony-bundle",
+    "authors" : [{
+        "name" : "Emil Świniarski",
+        "email" : "emil.swiniarski7@gmail.com"
+    }],
+    "keywords" : [
+        "core bundle",
+        "symfony2"
+    ],
+    "license" : [
+        "MIT"
+    ],
+    "require" : {
+        "symfony/assetic-bundle": "2.8"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "ES\\CoreBundle\\" : ""
+        }
+    },
+    "repositories" : [{
+    }]
+}

@@ -5,8 +5,14 @@
 
         {% block headWrapper %}
             <head>
-                {% block head %}
-                    {% include 'ESCoreBundle:Partials:head.html.twig' %}
+                {% block metaWrapper %}
+                    <title>{% block title %}{% endblock %}</title>
+                    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                {% endblock %}
+
+                {% block stylesheets %}
+                    {% include 'ESCoreBundle:Partials:stylesheets.html.twig' %}
                 {% endblock %}
             </head>
         {% endblock %}
@@ -15,43 +21,43 @@
             <body class="eupopup eupopup-bottom">
             {% block body %}
                 <div {% block contentAttr -%}id="a"{%- endblock %}>
-                    {% block contentAttrInside %}
-                        {% block header %}
-                            {% include 'ESCoreBundle:Partials:header.html.twig' %}
-                        {% endblock %}
+                    {% block header %}
+                        {% include 'ESCoreBundle:Partials:header.html.twig' %}
+                    {% endblock %}
 
-                        {% block flashes %}
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        {% include 'ESCoreBundle:Partials:FlashMessage.html.twig' %}
-                                    </div>
+                    {% block flashes %}
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {% include 'ESCoreBundle:Partials:FlashMessage.html.twig' %}
                                 </div>
                             </div>
-                        {% endblock %}
+                        </div>
+                    {% endblock %}
 
-                        {% block container %}
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                    </div>
+                    {% block container %}
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {% block content %}{% endblock %}
                                 </div>
                             </div>
-                        {% endblock %}
+                        </div>
+                    {% endblock %}
 
-                        {% block footer %}
-                            {% include 'ESCoreBundle:Partials:footer.html.twig' %}
-                        {% endblock %}
+                    {% block footer %}
+                        {% include 'ESCoreBundle:Partials:footer.html.twig' %}
+                    {% endblock %}
 
-                        {% block cookies %}
-                            add cokie script
-                        {% endblock %}
+                    {% block cookies %}
+                        add cokie script
                     {% endblock %}
                 </div>
 
-                {% block foot %}
-                    {% include 'ESCoreBundle:Partials:foot.html.twig' %}
+                {% block javascripts %}
+                    {% include 'ESCoreBundle:Partials:javascripts.html.twig' %}
                 {% endblock %}
+
             {% endblock %}
             </body>
         {% endblock %}

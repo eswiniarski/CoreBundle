@@ -18,7 +18,12 @@
         {% endblock %}
 
         {% block bodyWrapper %}
-            <body class="eupopup eupopup-bottom">
+            <body {% block bodyAttr -%}{%- endblock %}>
+
+            {% block cookies %}
+                {% include 'ESCoreBundle:Partials:cookieInfo.html.twig' %}
+            {% endblock %}
+
             {% block body %}
                 <div {% block contentAttr -%}id="a"{%- endblock %}>
                     {% block header %}
@@ -48,10 +53,6 @@
                     {% block footer %}
                         {% include 'ESCoreBundle:Partials:footer.html.twig' %}
                     {% endblock %}
-
-                    {% block cookies %}
-                        add cokie script
-                    {% endblock %}
                 </div>
 
                 {% block javascripts %}
@@ -59,6 +60,7 @@
                 {% endblock %}
 
             {% endblock %}
+
             </body>
         {% endblock %}
 

@@ -7,9 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller {
     /**
-     * @Route("/tmp", name="tmp")
+     * @Route("/", name="default_home")
      */
-    public function tmpAction() {
-        exit('tmp');
+    public function indexAction() {
+        return $this->render('ESCoreBundle:Site:index.html.twig');
     }
 }

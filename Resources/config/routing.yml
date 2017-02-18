@@ -1,4 +1,4 @@
-test:
+es_core:
     resource: "@ESCoreBundle/Controller/DefaultController.php"
     type: annotation
     prefix:   /

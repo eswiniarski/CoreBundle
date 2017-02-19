@@ -14,7 +14,6 @@ assetic:
 
         core_lib_less:
             inputs:
-                - '@ESCoreBundle/Resources/public/lib/Fontawsome/less/font-awesome.less'
                 - '@ESCoreBundle/Resources/public/lib/jQueryEUCookie/less/jquery-eu-cookie-law-popup.less'
             filters:
                 - cssrewrite

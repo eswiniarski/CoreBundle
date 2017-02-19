@@ -8,7 +8,6 @@ assetic:
                 - '@ESCoreBundle/Resources/public/lib/jQuery/*'
                 - '@ESCoreBundle/Resources/public/lib/Bootstrap/js/tooltip.js'
                 - '@ESCoreBundle/Resources/public/lib/Bootstrap/js/*'
-                - '@ESCoreBundle/Resources/public/lib/Select2/js/*'
                 - '@ESCoreBundle/Resources/public/lib/jQueryEUCookie/js/jquery-eu-cookie-law-popup.js'
             filters:
                 - uglifyjs2
@@ -16,7 +15,6 @@ assetic:
         core_lib_less:
             inputs:
                 - '@ESCoreBundle/Resources/public/lib/Fontawsome/less/font-awesome.less'
-                - '@ESCoreBundle/Resources/public/lib/Select2/css/select2.min.css'
                 - '@ESCoreBundle/Resources/public/lib/jQueryEUCookie/less/jquery-eu-cookie-law-popup.less'
             filters:
                 - cssrewrite

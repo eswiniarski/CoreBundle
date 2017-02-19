@@ -1,5 +1,5 @@
 {
-    "name": "eswiniarski/core-bundle",
+    "name": "es/core-bundle",
     "description" : "Core bundle for symfony2",
     "type" : "symfony-bundle",
     "authors" : [{
@@ -21,6 +21,7 @@
             "ES\\CoreBundle\\" : ""
         }
     },
+    "target-dir": "eswiniarski/core-bundle",
     "repositories" : [{
     }]
 }

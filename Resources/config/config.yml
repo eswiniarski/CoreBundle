@@ -56,3 +56,7 @@ assetic:
 twig:
     form:
         resources: ['ESCoreBundle:Form:bootstrap_3_layout.html.twig']
+
+lexik_translation:
+    fallback_locale: %locale%
+    managed_locales: %enabled.locales%

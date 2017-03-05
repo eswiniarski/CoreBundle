@@ -3,7 +3,7 @@
 namespace ES\CoreBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-use Symfony\Bundle\AsseticBundle\AsseticBundle;
+//use Symfony\Bundle\AsseticBundle\AsseticBundle;
 
 class ESCoreBundle extends Bundle {
     /**
@@ -15,7 +15,9 @@ class ESCoreBundle extends Bundle {
      */
     public function registerBundles($environment) {
         $bundles = array(
-            new AsseticBundle(),
+            //new AsseticBundle(),
+            new \Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            new \Lexik\Bundle\TranslationBundle\LexikTranslationBundle(),
         );
 
         if (in_array($environment, array('dev', 'test'))) {

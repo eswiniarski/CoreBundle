@@ -1,12 +1,18 @@
-<div class="eupopup eupopup-block eupopup-container eupopup-container-block"></div>
-
-<div class="eupopup-markup" style="display: none;">
-    <div class="eupopup-head">{{ 'cookie_info_header'|trans({}, 'ESCoreBundle') }}</div>
-    <div class="eupopup-body">{{ 'cookie_info_body'|trans({}, 'ESCoreBundle') }}</div>
-    <div class="eupopup-buttons">
-        <a href="#" class="eupopup-button eupopup-button_1">{{ 'cookie_info_continue'|trans({}, 'ESCoreBundle') }}</a>
-        <a href="{{ 'cookie_info_url'|trans({},'ESCoreBundle') }}" target="_blank" class="eupopup-button eupopup-button_2">{{ 'cookie_info_learn_more'|trans({}, 'ESCoreBundle') }}</a>
-    </div>
-    <div class="clearfix"></div>
-    <a href="#" class="eupopup-closebutton">x</a>
-</div>
+<script>
+    $(document).ready(function() {
+        $(document).euCookieLawPopup().init({
+            cookiePolicyUrl : '{{ 'cookie_info_url'|trans({},'ESCoreBundle') }}',
+            popupPosition : 'top',
+            colorStyle : 'default',
+            compactStyle : true,
+            popupTitle : '{{ 'cookie_info_header'|trans({}, 'ESCoreBundle') }}',
+            popupText : '{{ 'cookie_info_body'|trans({}, 'ESCoreBundle') }}',
+            buttonContinueTitle : '{{ 'cookie_info_continue'|trans({}, 'ESCoreBundle') }}',
+            buttonLearnmoreTitle : '{{ 'cookie_info_learn_more'|trans({}, 'ESCoreBundle') }}',
+            buttonLearnmoreOpenInNewWindow : true,
+            agreementExpiresInDays : 30,
+            autoAcceptCookiePolicy : false,
+            htmlMarkup : false
+        });
+    });
+</script>

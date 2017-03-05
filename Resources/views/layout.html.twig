@@ -20,10 +20,6 @@
         {% block bodyWrapper %}
             <body {% block bodyAttr -%}{%- endblock %}>
 
-            {% block cookies %}
-                {% include 'ESCoreBundle:Partials:cookieInfo.html.twig' %}
-            {% endblock %}
-
             {% block body %}
                 <div {% block contentAttr -%}id="a"{%- endblock %}>
                     {% block header %}
@@ -31,16 +27,11 @@
                     {% endblock %}
 
                     {% block flashes %}
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    {% include 'ESCoreBundle:Partials:FlashMessage.html.twig' %}
-                                </div>
-                            </div>
-                        </div>
+                        {% include 'ESCoreBundle:Partials:FlashMessage.html.twig' %}
                     {% endblock %}
 
                     {% block container %}
+
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
@@ -57,6 +48,7 @@
 
                 {% block javascripts %}
                     {% include 'ESCoreBundle:Partials:javascripts.html.twig' %}
+                    {{ block('cookies') }}
                 {% endblock %}
 
             {% endblock %}
@@ -66,4 +58,8 @@
 
     {% endblock %}
     </html>
+{% endblock %}
+
+{% block cookies %}
+    {% include 'ESCoreBundle:Partials:cookieInfo.html.twig' %}
 {% endblock %}

@@ -2,3 +2,9 @@ services:
 #    es_core.example:
 #        class: ES\CoreBundle\Example
 #        arguments: ["@service_id", "plain_value", %parameter%]
+
+    es_core.locale_leasner:
+        class: ES\CoreBundle\EventListener\LocaleListener
+        arguments: ['%kernel.default_locale%', '%enabled.locales%', '@lexik_translation.translator']
+        tags:
+            - { name: kernel.event_subscriber }

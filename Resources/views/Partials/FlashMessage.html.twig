@@ -2,28 +2,37 @@
 {% set notice = app.session.flashbag.get('notice') %}
 {% set warning = app.session.flashbag.get('warning') %}
 
-<div id="flashWrapper">
-    {% if error %}
-        <div class="alert alert-danger alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-            {{ error[0] }}
-        </div>
-    {% endif %}
+{% if error or notice or warning  %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
 
-    {% if notice %}
-        <div class="alert alert-success alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-            {{ notice[0] }}
-        </div>
-    {% endif %}
+            <div id="flashWrapper">
+                {% if error %}
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                        {{ error[0] }}
+                    </div>
+                {% endif %}
 
-    {% if warning %}
-        <div class="alert alert-warning alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-            {{ warning[0] }}
+                {% if notice %}
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                        {{ notice[0] }}
+                    </div>
+                {% endif %}
+
+                {% if warning %}
+                    <div class="alert alert-warning alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                        {{ warning[0] }}
+                    </div>
+                {% endif %}
+            </div>
         </div>
-    {% endif %}
+    </div>
 </div>
+{% endif %}

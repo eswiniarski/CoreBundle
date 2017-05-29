@@ -1,5 +1,5 @@
 # ESCoreBundle
-###### Simple symfony2 skieleton bundle
+###### Simple symfony2 skeleton bundle
 
 This is core bundle for symfony2 framework which provides basic configuration and features for your new project.
 This core bundle should be registered as parent for your bundle.
